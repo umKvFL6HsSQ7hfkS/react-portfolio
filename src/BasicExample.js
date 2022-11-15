@@ -2,12 +2,35 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {useState} from "react";
 
-function BasicExample({anime, addtoFavorites}) {
+function BasicExample({anime, cart, setFavorites}) {
+    
     
 //     const [active, setActive] = useState(false);
 //     const handleClick = () => {
 //     setActive(!active);
 //   };
+
+
+    function addtoFavorites(anime) {
+        console.log(cart.length)
+
+        var count = 0;
+        for (let i=0; i<cart.length; i++) {  
+        if (cart[i].name != anime.name) {
+            
+            count = count + 1
+            console.log("count incremented")
+            console.log(count)
+        }
+        }
+        if (count == cart.length) {
+        setFavorites([...cart, anime]);
+        }
+        console.log("addtoFavorites");
+        console.log("cart", cart);
+        
+        // return{}
+    }
 
     return (
         

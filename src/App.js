@@ -11,26 +11,6 @@ function App() {
   const [cart, setFavorites] = useState([]);
   // const [cartTotal, setTotal] = useState(0);
 
-  function addtoFavorites(anime) {
-    console.log(cart.length)
-
-    var count = 0;
-    for (let i=0; i<cart.length; i++) {  
-      if (cart[i].name != anime.name) {
-        
-        count++
-        console.log("count incremented")
-        console.log(count)
-      }
-    }
-    if (count == cart.length) {
-      setFavorites([...cart, anime]);
-    }
-    console.log("addtoFavorites");
-    console.log("cart", cart);
-    
-    // return{}
-  }
 
   // const colorButton = (anime) => {
   //   for (let i=0; i < anime.length; i++ {
@@ -45,7 +25,7 @@ function App() {
       <h1>My Anime List</h1>
       <div className="container">
       {itemInfo.map((element, index) => ( 
-        <BasicExample anime={element} addtoFavorites={() => addtoFavorites(element)}/>
+        <BasicExample anime={element} cart={cart} setFavorites={setFavorites}/>
       
       ))}
       </div>  
