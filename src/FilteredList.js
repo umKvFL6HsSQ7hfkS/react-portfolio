@@ -1,0 +1,6 @@
+
+function FilteredList({anime}) {
+    return (
+
+    )
+}
