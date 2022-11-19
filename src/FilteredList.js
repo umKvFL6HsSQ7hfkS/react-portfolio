@@ -1,6 +1,0 @@
-
-function FilteredList({anime}) {
-    return (
-
-    )
-}
