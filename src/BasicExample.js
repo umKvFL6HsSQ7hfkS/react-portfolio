@@ -2,8 +2,9 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {useState} from "react";
 import { CardGroup } from 'react-bootstrap';
+import AccordionItem from 'react-bootstrap/esm/AccordionItem';
 
-function BasicExample({anime, cart, setFavorites}) {
+function BasicExample({anime, cart, setFavorites, addCart, removeCart}) {
     
     
 //     const [active, setActive] = useState(false);
@@ -15,15 +16,18 @@ function BasicExample({anime, cart, setFavorites}) {
         // const changeText = (text) => setButtonText(text);
 
     function addtoFavorites(anime) {
-        console.log(cart.length)
+        console.log(cart.length) 
         if (!cart.includes(anime)) {
             setFavorites([...cart, anime]);
+            addCart(anime)
             setButtonText("Remove from Favorites")
+            
         } else {
             const remove = cart.indexOf(anime)
             if (remove > -1) {
                 setFavorites([...cart.slice(0,remove), ...cart.slice(remove+1)])
                 // cart.splice(remove, 1)
+                removeCart(anime)
                 setButtonText("Add to Favorites")
             }
         }
@@ -52,8 +56,14 @@ function BasicExample({anime, cart, setFavorites}) {
          <b> Seasons:</b> {anime.Seasons} 
          </Card.Text>
           <Button variant="danger" size="sm"
-            onClick={() => addtoFavorites(anime)
-            }>
+            // onClick={() => addtoFavorites(anime)} 
+            // onClick={() => updateCart(anime)}
+
+            onClick={event => {
+              addtoFavorites(anime);
+              // addCart(anime);
+            }}
+            >
             
             <span className="button-label">
             
