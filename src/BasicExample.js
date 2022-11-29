@@ -1,19 +1,15 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import {useState} from "react";
-import { CardGroup } from 'react-bootstrap';
-import AccordionItem from 'react-bootstrap/esm/AccordionItem';
+import {useState , useEffect} from "react";
 
 function BasicExample({anime, cart, setFavorites, addCart, removeCart}) {
-    
-    
-//     const [active, setActive] = useState(false);
-//     const handleClick = () => {
-//     setActive(!active);
-//   };
-        const [buttonText, setButtonText] = useState("Add to Favorites"); 
 
-        // const changeText = (text) => setButtonText(text);
+  const [buttonText, setButtonText] = useState("Add to Favorites");
+  
+  useEffect(() => {
+    if(cart.includes(anime)) setButtonText("Remove from Favorites");
+  },[]);
+        
 
     function addtoFavorites(anime) {
         console.log(cart.length) 
@@ -26,7 +22,6 @@ function BasicExample({anime, cart, setFavorites, addCart, removeCart}) {
             const remove = cart.indexOf(anime)
             if (remove > -1) {
                 setFavorites([...cart.slice(0,remove), ...cart.slice(remove+1)])
-                // cart.splice(remove, 1)
                 removeCart(anime)
                 setButtonText("Add to Favorites")
             }
