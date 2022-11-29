@@ -1,12 +1,10 @@
 import "./App.css";
 import React, { Component, useEffect } from "react";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import { itemInfo } from "./data";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
 import Aggregator from "./Aggregator";
-
 import { useState } from "react";
 import ShowItem from "./ShowItem";
 
@@ -29,7 +27,6 @@ function App() {
     setTotal(favSeasonTotal - item.Seasons);
   };
 
-  // console.log(filteredData)
 
   // filter by subcategory
   const selectSubcatType = (eventKey) => {

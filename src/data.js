@@ -134,6 +134,7 @@ export const itemInfo = [
   
   ];
   
+  // unsure if needed
   export const filterGroupInformation = [
     {
       title: 'Genre',

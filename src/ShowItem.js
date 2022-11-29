@@ -2,6 +2,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {useState , useEffect} from "react";
 
+// separate component for card
+
 function ShowItem({anime, cart, setFavorites, addCart, removeCart}) {
 
   const [buttonText, setButtonText] = useState("Add to Favorites");
