@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {useState , useEffect} from "react";
 
-function BasicExample({anime, cart, setFavorites, addCart, removeCart}) {
+function ShowItem({anime, cart, setFavorites, addCart, removeCart}) {
 
   const [buttonText, setButtonText] = useState("Add to Favorites");
   
@@ -75,4 +75,4 @@ function BasicExample({anime, cart, setFavorites, addCart, removeCart}) {
     );
   }
 
-  export default BasicExample;
+  export default ShowItem;

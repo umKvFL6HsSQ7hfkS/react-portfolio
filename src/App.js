@@ -3,11 +3,12 @@ import React, { Component, useEffect } from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { itemInfo } from "./data";
-import BasicExample from "./BasicExample";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
+import Aggregator from "./Aggregator";
 
 import { useState } from "react";
+import ShowItem from "./ShowItem";
 
 function App() {
   const [cart, setFavorites] = useState([]);
@@ -117,14 +118,7 @@ function App() {
   return (
     <div className="App">
       <h1> My Anime List </h1>
-      <div className="fav-total">
-        <h2>Favorites List</h2>
-        <p>
-          {cart.map((element) => (
-            <p>{element.name}</p>
-          ))}
-        </p>
-      </div>
+
       <div className="content">
         <div className="filter-section">
           <h2>Filter by: </h2>
@@ -248,7 +242,7 @@ function App() {
 
         <div className="container">
           {filteredList.map((element) => 
-              <BasicExample
+              <ShowItem
                 anime={element}
                 cart={cart}
                 setFavorites={setFavorites}
@@ -259,9 +253,14 @@ function App() {
           )}
         </div>
       </div>
-      <div>
-        <h3>Total number of seasons across all favorites</h3>
-        Total: {favSeasonTotal}
+      <div className="fav-total">
+        <h2>Favorites List</h2>
+        <p>
+          {cart.map((element) => (
+            <p>{element.name}</p>
+          ))}
+        </p>
+        <Aggregator total={favSeasonTotal}/>
       </div>
     </div>
   );
